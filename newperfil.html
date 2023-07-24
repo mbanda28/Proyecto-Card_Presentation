@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --black-background: #2d2d2d;
+            --white: #F8F8FF;
+            --green: #4e4b4b;
+            --sm: 14px;
+            --md: 20px;
+            --lg: 32px;
+        }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #A1B9CF;
+        }
+        .profile {
+            border: 1px solid var(--white);
+            border-radius: 20px;
+        }
+        .container {
+            background-color: var(--black-background);
+            height: 600px;
+            width: 280px;
+            border: 12px solid var(--black-background);
+            border-radius: 20px;
+        }
+        .photo{
+            width: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        .background {
+            width: 100%;
+        }
+        .perfil {
+            width: 40%;
+            position: absolute;
+            margin-top: 120px;
+            border-radius: 50%;
+            border: 2px solid var(--white);
+        }
+        .descripcion {
+            color: var(--white);
+            margin: 0;
+            text-align: center;
+        }
+        .descripcion h1 {
+            font-size: var(--lg);
+            margin: 50px 0 0 0;
+            border-bottom: 1px solid var(--white);
+            border-radius: 20%;
+        }
+        .descripcion p {
+            font-size: var(--md);
+            margin: 4px 0 10px 0;
+        }
+        .descripcion p:nth-last-child(1) {
+            font-size: var(--sm);
+            margin-top: 28px;
+        }
+        .enlaces {
+            width: 100%;
+            margin: 30px 0 50px 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+        }
+        .enlaces img {
+            width: 16%;
+            border-radius: 20%;
+        }
+        .enlaces img:hover{
+            cursor:pointer;
+
+        }
+        .links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            justify-items: center;
+            align-items: center;
+            padding: 14px;
+            color: var(--white);
+        }
+        .email {
+            display: flex;
+            justify-content: center;
+            font-size: var(--sm);
+            border: 1px solid var(--white);
+            border-radius: 20px;
+            box-sizing: border-box;
+        }
+        .email img:hover{
+            cursor: pointer;
+        }
+        .email img {
+            width: 40%;
+        }
+        .compartir {
+            display: flex;
+            justify-content: center;
+            font-size: var(--sm);
+            border: 1px solid var(--white);
+            border-radius: 20px;
+        }
+        .compartir img {
+            width: 30%;
+        }
+        .compartir img:hover{
+            cursor: pointer;
+        }
+        .template {
+            text-align: center;
+            padding: 10px;
+            font-weight: 900;
+        }
+        .template:hover {
+            padding: 15px;
+            font-size: 20px;
+            cursor:copy;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile">
+        <div class="container">
+
+            <div class="photo">
+                <img class="background" src="/img/c.webp" alt="background">
+                <img class="perfil" src="/img/p.jpeg" alt="perfil">
+            </div>
+
+            <div class="descripcion">
+                <h1>Miguel Banda</h1>
+                <p>Desarrollador Junior</p>
+                <p>Proactivo, autodidacta en aplicar todas mis habilidades en entornos de desarrollo y proyectos creativos</p>
+            </div>
+
+            <div class="enlaces">
+                <img src="/img/linkk.png" id="linkedin">
+                <img src="/img/git.png" id="github">
+                <img src="/img/insta.png" id="instagram">
+            </div>
+            <div class="links">
+                <div class="email">
+                    <img class="send" src="/img/correo.png" alt="email"><p>Email</p>
+                </div>
+
+                <div class="compartir">
+                    <img class="shared" src="/img/shared.png" alt="shared" value="miguel_bx96@hotmail.com"><p>Compartir</p>
+                </div>
+            </div>
+        </div>
+        <div class="template"></div>
+    </div>
+
+    <script>
+        const getLinkedin = document.getElementById('linkedin')
+        const getGithub = document.getElementById('github')
+        const getInsta = document.getElementById('instagram')
+        const text = document.querySelector('.shared')
+
+        getLinkedin.addEventListener('click',function(){
+            const url = 'https://www.linkedin.com/in/banda28';
+            window.open(url)
+        })
+        getGithub.addEventListener('click', () =>{
+            const url = 'https://github.com/mbanda28';
+            window.open(url)
+        })
+        getInsta.addEventListener('click',()=>{
+            const url ='https://www.instagram.com/bandavibess';
+            window.open(url)
+        })
+        text.onclick = function(){
+            const mail = 'miguel_bx96@hotmail.com';
+            const mes = 'Haz copiado el correo!'
+            const template = document.querySelector('.template')
+            template.innerHTML = mes;
+            navigator.clipboard.writeText(mail)
+                .then(()=>{
+                    console.log('copiado' + mail)
+                })
+        };
+
+    </script>
+</body>
+</html>
